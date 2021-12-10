@@ -3,15 +3,15 @@ using NUnit.Framework;
 
 namespace CabInvoiceGeneratorTest
 {
-    public class Tests
+    public class Testsgit 
     {
         [Test]
         public void GivenDistanceAndTime_WhenACalculate_shoouldReturntotalFare()
         {
             InvoiceGenerator invoice = new InvoiceGenerator();
             double Expected = 52;
-            double result = invoice.CalculateFare(5,2);
-            Assert.AreEqual(Expected,result);
+            double result = invoice.CalculateFare(5, 2);
+            Assert.AreEqual(Expected, result);
         }
         [Test]
         public void GivenDistanceAndTime_MultipleRide_WhenACalculate_shoouldReturntotalFare()
