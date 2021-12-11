@@ -28,16 +28,21 @@ namespace CabInvoiceGenerator
             double totalFare=0;
             foreach(var data in ride)
             {
-                totalFare += (data.DISTANCE * COST_PER_KM) + (data.TIME * COST_PER_MINUTE);
+                totalFare += this.CalculateFare(data.DISTANCE,data.TIME);
+               
             }
-            if (totalFare < MIN_FARE)
-            {
-                return MIN_FARE;
-            }
-            else
-            {
-                return totalFare;
-            }
+            return totalFare;
+
+        }
+        public InvoiceSummary CalculateInvoiceSummary(Ride[] ride)
+        {
+            double totalFare = this.CalculateMultipleRideFair(ride);
+            InvoiceSummary summary = new InvoiceSummary();
+            summary.totalFare = totalFare;
+            summary.totalNumberOfRides = ride.Count();
+            summary.CalulateAverageFare();
+            return summary;
+
         }
     }
 }
